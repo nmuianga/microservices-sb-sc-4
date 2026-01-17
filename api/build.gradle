@@ -4,13 +4,13 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'mz.co.muianga.microservices.api'
-version = '0.0.1-SNAPSHOT'
+group = 'mz.co.muianga.api'
+version = '1.0.0-SNAPSHOT'
 description = 'api'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(24)
 	}
 }
 
@@ -18,10 +18,15 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+  springBootVersion = '3.5.9'
+}
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+  implementation 'org.springframework.boot:spring-boot-starter-actuator'
+  implementation 'org.springframework.boot:spring-boot-starter-webflux'
+  testImplementation 'io.projectreactor:reactor-test'
 }
 
 tasks.named('test') {

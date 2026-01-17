@@ -1,4 +1,4 @@
-package mz.co.muianga.microservices.api;
+package mz.co.muianga.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
