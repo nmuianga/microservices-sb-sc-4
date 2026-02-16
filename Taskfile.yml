@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+  GREETING: Hello, world!
+
+tasks:
+  default:
+    desc: Print a greeting message
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+  build:
+    desc: Build the project
+    cmds:
+      - ./gradlew build
+  run-all:
+    desc: Run all the microservices
+    cmds:
+      - java -jar ./microservices/product-composite-service/build/libs/*-SNAPSHOT.jar &
+      - java -jar ./microservices/product-service/build/libs/*SNAPSHOT.jar &
+      - java -jar ./microservices/recommendation-service/build/libs/*SNAPSHOT.jar &
+      - java -jar ./microservices/review-service/build/libs/*SNAPSHOT.jar &
+  test:
+    desc: Run all the tests
+    cmds:
+      - ./gradlew test

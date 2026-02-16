@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: product-service
+server:
+  port: 7002
+logging:
+  level:
+    root: INFO
+    mz.co.muianga: DEBUG
