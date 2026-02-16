@@ -1,6 +1,7 @@
 package mz.co.muianga.api.exceptions;
 
 public class NotFoundException extends RuntimeException {
+
   public NotFoundException() {}
 
   public NotFoundException(String message) {
