@@ -1,8 +1,11 @@
 spring:
   application:
     name: product-service
+  config:
+    activate:
+      on-profile: docker
 server:
-  port: 7002
+  port: 8080
 logging:
   level:
     root: INFO
