@@ -26,3 +26,14 @@ tasks:
     desc: Run all the tests
     cmds:
       - ./gradlew test
+
+  docker-build:
+    desc: Build apps with docker
+    cmds:
+      - ./gradlew build
+      - docker compose build
+
+  start-apps:
+    desc: Start up the microservices
+    cmds:
+      - docker compose up -d

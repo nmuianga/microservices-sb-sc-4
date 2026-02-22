@@ -1,6 +1,9 @@
 spring:
   application:
     name: recommendation-service
+  config:
+    activate:
+      on-profile: docker
 
 server.port: 7003
 server.error.include-message: always
@@ -9,3 +12,10 @@ logging:
   level:
     root: INFO
     mz.co.muianga: DEBUG
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+server:
+  port: 8080
